@@ -7,11 +7,45 @@
     android:layout_height="match_parent"
     tools:context=".SearchStudent">
 
+    <Button
+        android:id="@+id/btn_v_search_search"
+        android:layout_width="119dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Search"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/lv_v_search_searchResults"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_v_search_major" />
+
+    <Button
+        android:id="@+id/btn_v_search_back"
+        android:layout_width="63dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:lineSpacingExtra="0sp"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:translationX="-20px"
+        android:translationY="-5px"
+        app:icon="@android:drawable/ic_menu_revert"
+        app:iconGravity="textEnd"
+        app:iconPadding="2dp"
+        app:iconSize="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Spinner
         android:id="@+id/sp_v_search_gpaCategory"
-        android:layout_width="66dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="21dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="11dp"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
@@ -23,7 +57,7 @@
         android:id="@+id/et_v_search_gpa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="101dp"
+        android:layout_marginEnd="98dp"
         android:ems="10"
         android:fontFamily="serif"
         android:inputType="text"
@@ -117,13 +151,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="23dp"
+        android:layout_marginEnd="84dp"
         android:fontFamily="serif"
         android:text="Search Student"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -144,35 +176,31 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="160dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Username:"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/et_v_search_username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Spinner
         android:id="@+id/sp_v_search_major"
-        android:layout_width="202dp"
-        android:layout_height="62dp"
-        android:layout_marginBottom="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/lv_v_search_searchResults"
+        android:layout_width="209dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="19dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_v_search_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <ListView
         android:id="@+id/lv_v_search_searchResults"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_v_search_major" />
+        android:layout_width="410dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="660dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

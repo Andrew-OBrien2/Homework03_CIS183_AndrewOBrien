@@ -43,6 +43,25 @@ public class StudentDetails extends AppCompatActivity
         updateInfoButtonClickListener();
         backButtonClickListener();
 
+        if (getIntent() != null) {
+            String username = getIntent().getStringExtra("username");
+            String firstName = getIntent().getStringExtra("firstName");
+            String lastName = getIntent().getStringExtra("lastName");
+            String email = getIntent().getStringExtra("email");
+            int age = getIntent().getIntExtra("age", 0);
+            float gpa = getIntent().getFloatExtra("gpa", 0.0f);
+            String major = getIntent().getStringExtra("major");
+
+            // Set the data to TextViews
+            tv_j_studentDetails_username.setText(username);
+            tv_j_studentDetails_firstName.setText(firstName);
+            tv_j_studentDetails_lastName.setText(lastName);
+            tv_j_studentDetails_email.setText(email);
+            tv_j_studentDetails_age.setText(String.valueOf(age));
+            tv_j_studentDetails_gpa.setText(String.valueOf(gpa));
+            tv_j_studentDetails_major.setText(major);
+        }
+
     }
 
     private void updateInfoButtonClickListener()

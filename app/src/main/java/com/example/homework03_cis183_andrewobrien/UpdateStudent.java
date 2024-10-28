@@ -22,7 +22,6 @@ public class UpdateStudent extends AppCompatActivity
     EditText et_j_updateStudent_gpa;
     EditText et_j_updateStudent_email;
     EditText et_j_updateStudent_age;
-    TextView tv_j_updateStudent_addNewMajor;
     Spinner sp_j_updateStudent_major;
     Button btn_j_updateStudent_back;
     Button btn_j_updateStudent_updateStudent;
@@ -40,7 +39,6 @@ public class UpdateStudent extends AppCompatActivity
         et_j_updateStudent_gpa             = findViewById(R.id.et_v_updateStudent_gpa);
         et_j_updateStudent_email           = findViewById(R.id.et_v_updateStudent_email);
         et_j_updateStudent_age             = findViewById(R.id.et_v_updateStudent_age);
-        tv_j_updateStudent_addNewMajor     = findViewById(R.id.tv_v_updateStudent_addNewMajor);
         sp_j_updateStudent_major           = findViewById(R.id.sp_v_updateStudent_major);
         btn_j_updateStudent_back           = findViewById(R.id.btn_v_updateStudent_back);
         btn_j_updateStudent_updateStudent  = findViewById(R.id.btn_v_updateStudent_updateStudent);

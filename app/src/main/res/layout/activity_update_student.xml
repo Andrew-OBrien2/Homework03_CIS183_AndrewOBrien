@@ -51,8 +51,7 @@
         android:inputType="text"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView38"
-        app:layout_constraintEnd_toStartOf="@+id/tv_v_updateStudent_addNewMajor"
-        app:layout_constraintStart_toStartOf="@+id/tv_v_updateStudent_addNewMajor" />
+        tools:layout_editor_absoluteX="138dp" />
 
     <EditText
         android:id="@+id/et_v_updateStudent_gpa"
@@ -65,17 +64,6 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/et_v_updateStudent_username"
         app:layout_constraintTop_toBottomOf="@+id/et_v_updateStudent_username" />
-
-    <TextView
-        android:id="@+id/tv_v_updateStudent_addNewMajor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="72dp"
-        android:text="Add New Major"
-        android:textColor="#2196F3"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/sp_v_updateStudent_major"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/et_v_updateStudent_firstName"
@@ -173,7 +161,7 @@
         android:layout_height="0dp"
         android:layout_marginEnd="44dp"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Add Student"
+        android:text="Update Student"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/btn_v_updateStudent_back"

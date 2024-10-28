@@ -83,7 +83,7 @@
         android:layout_marginTop="23dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="EMAIL HERE"
-        android:textAlignment="textEnd"
+        android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/tv_v_studentDetails_gpa"
@@ -188,16 +188,12 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="94dp"
-        android:layout_marginEnd="95dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Email:"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_v_studentDetails_email"
-        app:layout_constraintEnd_toStartOf="@+id/tv_v_studentDetails_major"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_v_studentDetails_email" />
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="330dp" />
 
     <TextView
         android:id="@+id/textView25"
