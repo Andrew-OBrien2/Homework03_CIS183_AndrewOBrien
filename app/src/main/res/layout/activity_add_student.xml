@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddStudent">
+
+    <Button
+        android:id="@+id/btn_v_addStudent_back"
+        android:layout_width="119dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="65dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Back"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_v_addStudent_addStudent"
+        android:layout_width="119dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="44dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Add Student"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_v_addStudent_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_v_addStudent_back" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="First Name:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/et_v_addStudent_firstName"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Major:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <EditText
+        android:id="@+id/et_v_addStudent_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="serif"
+        android:inputType="text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/et_v_addStudent_gpa"
+        app:layout_constraintTop_toBottomOf="@+id/et_v_addStudent_gpa" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Last Name:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/et_v_addStudent_lastName"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_v_addStudent_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="serif"
+        android:inputType="text"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView20"
+        app:layout_constraintEnd_toStartOf="@+id/tv_v_addStudent_addNewMajor"
+        app:layout_constraintStart_toStartOf="@+id/tv_v_addStudent_addNewMajor" />
+
+    <EditText
+        android:id="@+id/et_v_addStudent_gpa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:ems="10"
+        android:fontFamily="serif"
+        android:inputType="text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/et_v_addStudent_username"
+        app:layout_constraintTop_toBottomOf="@+id/et_v_addStudent_username" />
+
+    <TextView
+        android:id="@+id/tv_v_addStudent_addNewMajor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="72dp"
+        android:text="Add New Major"
+        android:textColor="#2196F3"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sp_v_addStudent_major"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/et_v_addStudent_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:fontFamily="serif"
+        android:inputType="text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/et_v_addStudent_lastName" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="9dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Username:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/et_v_addStudent_username"
+        app:layout_constraintEnd_toStartOf="@+id/et_v_addStudent_lastName" />
+
+    <EditText
+        android:id="@+id/et_v_addStudent_lastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="162dp"
+        android:ems="10"
+        android:fontFamily="serif"
+        android:inputType="text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Age:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/et_v_addStudent_age"
+        app:layout_constraintTop_toBottomOf="@+id/et_v_addStudent_email" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="7dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Email:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/et_v_addStudent_email"
+        app:layout_constraintEnd_toStartOf="@+id/et_v_addStudent_email" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="GPA:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/et_v_addStudent_gpa"
+        app:layout_constraintTop_toTopOf="@+id/et_v_addStudent_gpa" />
+
+    <Spinner
+        android:id="@+id/sp_v_addStudent_major"
+        android:layout_width="211dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/et_v_addStudent_age" />
+
+    <EditText
+        android:id="@+id/et_v_addStudent_firstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginBottom="17dp"
+        android:ems="10"
+        android:fontFamily="serif"
+        android:inputType="text"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/et_v_addStudent_lastName"
+        app:layout_constraintStart_toEndOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="serif"
+        android:text="Add New Student"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
