@@ -41,11 +41,10 @@ public class MainActivity extends AppCompatActivity
         searchStudentButtonClickListener();
         addStudentButtonClickListener();
 
-        // Get all students from the database
+        //get all students from the database
         ArrayList<Student> students = dbHelper.getAllStudents();
 
-        // Now, you can use an adapter to display the data in the ListView
-        StudentListAdapter adapter = new StudentListAdapter(this, students); // Assuming you have a StudentAdapter class
+        StudentListAdapter adapter = new StudentListAdapter(this, students);
         lv_j_main_studentList.setAdapter(adapter);
 
         if (AddStudent.studentAdded)
