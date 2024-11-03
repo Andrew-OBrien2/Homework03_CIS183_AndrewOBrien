@@ -1,5 +1,7 @@
 package com.example.homework03_cis183_andrewobrien;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
@@ -17,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
     public DatabaseHelper(Context c)
     {
-        super(c,database_name,null,4);
+        super(c,database_name,null,8);
     }
 
     @Override
@@ -65,12 +67,12 @@ public class DatabaseHelper extends SQLiteOpenHelper
             SQLiteDatabase db = this.getWritableDatabase();
 
             //dummy data
-            db.execSQL("INSERT INTO " + students_table_name + "(username, firstName, lastName, email, age, gpa, major) VALUES ('jdoe', 'John', 'Doe', 'jdoe@university.edu', 20, 3.5, 'CIS');");
-            db.execSQL("INSERT INTO " + students_table_name + "(username, firstName, lastName, email, age, gpa, major) VALUES ('asmith', 'Alice', 'Smith', 'asmith@university.edu', 22, 3.8, 'BUS');");
-            db.execSQL("INSERT INTO " + students_table_name + "(username, firstName, lastName, email, age, gpa, major) VALUES ('btaylor', 'Bob', 'Taylor', 'btaylor@college.edu', 19, 2.9, 'ART');");
-            db.execSQL("INSERT INTO " + students_table_name + "(username, firstName, lastName, email, age, gpa, major) VALUES ('clarkson', 'Charlie', 'Clarkson', 'cclarkson@university.edu', 21, 3.2, 'CIS');");
-            db.execSQL("INSERT INTO " + students_table_name + "(username, firstName, lastName, email, age, gpa, major) VALUES ('edavis', 'Emma', 'Davis', 'edavis@college.edu', 23, 3.6, 'BIO');");
-            db.execSQL("INSERT INTO " + students_table_name + "(username, firstName, lastName, email, age, gpa, major) VALUES ('fwright', 'Frank', 'Wright', 'fwright@university.edu', 20, 2.7, 'BUS');");
+            db.execSQL("INSERT INTO " + students_table_name + "(username, firstName, lastName, email, age, gpa, major) VALUES ('jdoe', 'John', 'Doe', 'jdoe@university.edu', 20, 3.5, 'Computer Information Systems');");
+            db.execSQL("INSERT INTO " + students_table_name + "(username, firstName, lastName, email, age, gpa, major) VALUES ('asmith', 'Alice', 'Smith', 'asmith@university.edu', 22, 3.8, 'Business');");
+            db.execSQL("INSERT INTO " + students_table_name + "(username, firstName, lastName, email, age, gpa, major) VALUES ('btaylor', 'Bob', 'Taylor', 'btaylor@college.edu', 19, 2.9, 'Arts');");
+            db.execSQL("INSERT INTO " + students_table_name + "(username, firstName, lastName, email, age, gpa, major) VALUES ('clarkson', 'Charlie', 'Clarkson', 'cclarkson@university.edu', 21, 3.2, 'Computer Information Systems');");
+            db.execSQL("INSERT INTO " + students_table_name + "(username, firstName, lastName, email, age, gpa, major) VALUES ('edavis', 'Emma', 'Davis', 'edavis@college.edu', 23, 3.6, 'Biology');");
+            db.execSQL("INSERT INTO " + students_table_name + "(username, firstName, lastName, email, age, gpa, major) VALUES ('fwright', 'Frank', 'Wright', 'fwright@university.edu', 20, 2.7, 'Business');");
 
             db.close();
         }
@@ -86,8 +88,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
             //dummy data
             db.execSQL("INSERT INTO " + majors_table_name + "(majorID, majorName, majorPrefix) VALUES ('1', 'Computer Information Systems', 'CIS');");
-            db.execSQL("INSERT INTO " + majors_table_name + "(majorID, majorName, majorPrefix) VALUES ('2', 'Business Administration', 'BUS');");
-            db.execSQL("INSERT INTO " + majors_table_name + "(majorID, majorName, majorPrefix) VALUES ('3', 'Fine Arts', 'ART');");
+            db.execSQL("INSERT INTO " + majors_table_name + "(majorID, majorName, majorPrefix) VALUES ('2', 'Business', 'BUS');");
+            db.execSQL("INSERT INTO " + majors_table_name + "(majorID, majorName, majorPrefix) VALUES ('3', 'Arts', 'ART');");
             db.execSQL("INSERT INTO " + majors_table_name + "(majorID, majorName, majorPrefix) VALUES ('4', 'Biology', 'BIO');");
             db.execSQL("INSERT INTO " + majors_table_name + "(majorID, majorName, majorPrefix) VALUES ('5', 'Psychology', 'PSY');");
 
@@ -250,4 +252,196 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return majors;
     }
 
+    public String getMajorPrefix(String PassedMajorName)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String prefix = "";
+
+        String selectStatement = "SELECT majorPrefix FROM " + majors_table_name + " WHERE majorName = '" + PassedMajorName + "';";
+
+        Cursor cursor = db.rawQuery(selectStatement, null);
+
+        if (cursor.moveToFirst())
+        {
+            prefix = cursor.getString(0);
+        }
+
+        db.close();
+        return prefix;
+    }
+
+    public String getMajorName(String PassedMajorPrefix)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String name = "";
+
+        String selectStatement = "SELECT majorName FROM " + majors_table_name + " WHERE majorPrefix = '" + PassedMajorPrefix + "';";
+
+        Cursor cursor = db.rawQuery(selectStatement, null);
+
+        if (cursor.moveToFirst())
+        {
+            name = cursor.getString(0);
+        }
+        db.close();
+        return name;
+    }
+
+    public void updateStudent(String oldUsername, String newUsername, String firstName, String lastName, String email, String age, String gpa, String major) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // Update username separately if it's different
+        if (!oldUsername.equals(newUsername)) {
+            String sqlStatement = "UPDATE " + students_table_name +
+                    " SET username = '" + newUsername +
+                    "' WHERE username = '" + oldUsername + "'";
+            db.execSQL(sqlStatement);
+        }
+
+        // Update other fields with ContentValues
+        ContentValues values = new ContentValues();
+        values.put("firstName", firstName);
+        values.put("lastName", lastName);
+        values.put("email", email);
+        values.put("age", Integer.parseInt(age));
+        values.put("gpa", Float.parseFloat(gpa));
+        values.put("major", major);
+
+        db.update(students_table_name, values, "username = '" + newUsername + "'", null);
+        db.close();
+    }
+
+    public void addMajor(String majorName, String majorPrefix)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.execSQL("INSERT INTO " + majors_table_name + " (majorName, majorPrefix) VALUES ('" + majorName + "','" + majorPrefix + "');");
+
+        db.close();
+    }
+
+    @SuppressLint("Range")
+    public ArrayList<Student> findStudentsGivenCriteria(String username, String f, String l, String gpa, String major)
+    {
+        ArrayList<Student> studentsList = new ArrayList<Student>();
+        String selectStatement = "SELECT * FROM " + students_table_name + " WHERE ";
+
+        if(username.isEmpty())
+        {
+            selectStatement += "username IS NOT NULL ";
+        }
+        else
+        {
+            selectStatement += "username = '" + username + "' ";
+        }
+
+        selectStatement += " AND ";
+
+        if(f.isEmpty())
+        {
+            selectStatement += "firstName IS NOT NULL ";
+        }
+        else
+        {
+            selectStatement += "firstName = '" + f + "' ";
+        }
+
+        selectStatement += " AND ";
+
+        if(l.isEmpty())
+        {
+            selectStatement += "lastName IS NOT NULL ";
+        }
+        else
+        {
+            selectStatement += "lastName = '" + l + "' ";
+        }
+
+        selectStatement += " AND ";
+
+        if(gpa.isEmpty())
+        {
+            selectStatement += "gpa IS NOT NULL ";
+        }
+        else
+        {
+            selectStatement += "gpa = " + gpa + " ";
+        }
+
+        selectStatement += " AND ";
+
+        if(major.isEmpty())
+        {
+            selectStatement += "major IS NOT NULL ";
+        }
+        else
+        {
+            selectStatement += "major = '" + major + "' ";
+        }
+
+        selectStatement += ";";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(selectStatement, null);
+
+        if(cursor.moveToFirst())
+        {
+            do
+            {
+                String user = cursor.getString(cursor.getColumnIndex("username"));
+                String firstName = cursor.getString(cursor.getColumnIndex("firstName"));
+                String lastName = cursor.getString(cursor.getColumnIndex("lastName"));
+                String email = cursor.getString(cursor.getColumnIndex("email"));
+                int studentAge = cursor.getInt(cursor.getColumnIndex("age"));
+                float studentGpa = cursor.getFloat(cursor.getColumnIndex("gpa"));
+                String studentMajor = cursor.getString(cursor.getColumnIndex("major"));
+
+                studentsList.add(new Student(user, firstName, lastName, email, studentAge, studentGpa, studentMajor));
+            }
+            while(cursor.moveToNext());
+        }
+        db.close();
+        return studentsList;
+    }
+
+    public boolean doesUsernameExists(String username)
+    {
+        boolean exists = false;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectStatement = "SELECT * FROM " + students_table_name + " WHERE username = '" + username + "'";
+        Cursor cursor = db.rawQuery(selectStatement, null);
+        if (cursor.getCount() > 0)
+        {
+            exists = true;
+        }
+        else
+        {
+            exists = false;
+        }
+
+
+        db.close();
+        return exists;
+    }
+
+    public boolean doesMajorExists(String major)
+    {
+        boolean exists = false;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectStatement = "SELECT * FROM " + majors_table_name + " WHERE majorName = '" + major + "'";
+        Cursor cursor = db.rawQuery(selectStatement, null);
+        if (cursor.getCount() > 0)
+        {
+            exists = true;
+        }
+        else
+        {
+            exists = false;
+        }
+
+
+        db.close();
+        return exists;
+    }
 }

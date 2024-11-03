@@ -3,6 +3,7 @@ package com.example.homework03_cis183_andrewobrien;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -10,9 +11,8 @@ import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import java.util.ArrayList;
 
 public class SearchStudent extends AppCompatActivity
 {
@@ -25,7 +25,9 @@ public class SearchStudent extends AppCompatActivity
     ListView lv_j_search_searchResults;
     Button btn_j_search_back;
     Button btn_j_search_search;
+    DatabaseHelper dbHelper;
 
+    SearchListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,14 +38,21 @@ public class SearchStudent extends AppCompatActivity
         et_j_search_firstName     = findViewById(R.id.et_v_search_firstName);
         et_j_search_lastName      = findViewById(R.id.et_v_search_lastName);
         et_j_search_gpa           = findViewById(R.id.et_v_search_gpa);
-        sp_j_search_gpaCategory   = findViewById(R.id.sp_v_search_gpaCategory);
         sp_j_search_major         = findViewById(R.id.sp_v_search_major);
         lv_j_search_searchResults = findViewById(R.id.lv_v_search_searchResults);
         btn_j_search_back         = findViewById(R.id.btn_v_search_back);
         btn_j_search_search       = findViewById(R.id.btn_v_search_search);
 
+        dbHelper = new DatabaseHelper(this);
+
         searchButtonClickListener();
         backStudentButtonClickListener();
+
+        ArrayList<String> majors = dbHelper.getAllMajors();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, majors);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //set the adapter to the spinner
+        sp_j_search_major.setAdapter(adapter);
 
     }
 
@@ -54,7 +63,7 @@ public class SearchStudent extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-
+                fillListView();
             }
         });
     }
@@ -69,5 +78,22 @@ public class SearchStudent extends AppCompatActivity
                 startActivity(new Intent(SearchStudent.this, MainActivity.class));
             }
         });
+    }
+
+    private void fillListView()
+    {
+        String username = et_j_search_username.getText().toString();
+        String firstName = et_j_search_firstName.getText().toString();
+        String lastName = et_j_search_lastName.getText().toString();
+        String gpaString = et_j_search_gpa.getText().toString();
+        String major = sp_j_search_major.getSelectedItem().toString();
+
+
+        // Call the database method to find students based on criteria
+        ArrayList<Student> students = dbHelper.findStudentsGivenCriteria(username, firstName, lastName, gpaString, major);
+
+        // Initialize the adapter with the retrieved student list and set it to the ListView
+        adapter = new SearchListAdapter(this, students, dbHelper);
+        lv_j_search_searchResults.setAdapter(adapter);
     }
 }

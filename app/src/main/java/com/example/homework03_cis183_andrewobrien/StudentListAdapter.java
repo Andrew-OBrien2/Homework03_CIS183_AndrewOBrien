@@ -68,6 +68,8 @@ public class StudentListAdapter extends BaseAdapter
             @Override
             public void onClick(View v)
             {
+                DatabaseHelper dbHelper = new DatabaseHelper(context);
+
                 Intent intent = new Intent(context, StudentDetails.class);
                 intent.putExtra("username", student.getUsername());
                 intent.putExtra("firstName", student.getFirstName());
@@ -75,7 +77,7 @@ public class StudentListAdapter extends BaseAdapter
                 intent.putExtra("email", student.getEmail());
                 intent.putExtra("age", student.getAge());
                 intent.putExtra("gpa", student.getGpa());
-                intent.putExtra("major", student.getMajor());
+                intent.putExtra("major", dbHelper.getMajorPrefix(student.getMajor()));
                 context.startActivity(intent);
             }
         });

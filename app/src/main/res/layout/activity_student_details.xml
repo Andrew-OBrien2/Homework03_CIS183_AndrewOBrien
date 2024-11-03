@@ -11,27 +11,25 @@
         android:id="@+id/btn_v_studentDetails_updateInfo"
         android:layout_width="244dp"
         android:layout_height="74dp"
-        android:layout_marginBottom="119dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="540dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Update Student Info"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_v_studentDetails_back"
         android:layout_width="119dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Back"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_v_studentDetails_updateInfo" />
 
@@ -39,198 +37,200 @@
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="104dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="First Name:"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_v_studentDetails_firstName"
-        app:layout_constraintEnd_toStartOf="@+id/tv_v_studentDetails_firstName"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_v_studentDetails_age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="56dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="AGE HERE"
         android:textAlignment="textEnd"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tv_v_studentDetails_email"
-        app:layout_constraintTop_toBottomOf="@+id/tv_v_studentDetails_email" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_v_studentDetails_lastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="60dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="LAST NAME HERE"
         android:textAlignment="textEnd"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView23"
-        app:layout_constraintTop_toBottomOf="@+id/tv_v_studentDetails_firstName" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_v_studentDetails_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="328dp"
+        android:layout_marginEnd="56dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="EMAIL HERE"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tv_v_studentDetails_gpa"
-        app:layout_constraintTop_toBottomOf="@+id/tv_v_studentDetails_gpa" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_v_studentDetails_gpa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="60dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="GPA HERE"
         android:textAlignment="textEnd"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tv_v_studentDetails_username"
-        app:layout_constraintTop_toBottomOf="@+id/tv_v_studentDetails_username" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_v_studentDetails_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="3dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="56dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="USERNAME HERE"
         android:textAlignment="textEnd"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView26"
-        app:layout_constraintTop_toBottomOf="@+id/tv_v_studentDetails_lastName" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_v_studentDetails_firstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
-        android:layout_marginEnd="11dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="60dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="FIRST NAME HERE"
         android:textAlignment="textEnd"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView27"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_v_studentDetails_major"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="444dp"
+        android:layout_marginEnd="56dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="MAJOR HERE"
         android:textAlignment="textEnd"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tv_v_studentDetails_age"
-        app:layout_constraintTop_toBottomOf="@+id/tv_v_studentDetails_age" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="444dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Major:"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/btn_v_studentDetails_updateInfo"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="380dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Age:"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="168dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Last Name:"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView26"
-        app:layout_constraintEnd_toStartOf="@+id/tv_v_studentDetails_lastName"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="328dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Email:"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="330dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginBottom="23dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="280dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="GPA:"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView24"
-        app:layout_constraintStart_toStartOf="@+id/textView24" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="228dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Username:"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView25"
-        app:layout_constraintEnd_toStartOf="@+id/tv_v_studentDetails_username"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="84dp"
         android:fontFamily="serif"
         android:text="Student Details"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

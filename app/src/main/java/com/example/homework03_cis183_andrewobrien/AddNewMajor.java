@@ -5,12 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class AddNewMajor extends AppCompatActivity
 {
@@ -18,6 +16,9 @@ public class AddNewMajor extends AppCompatActivity
     EditText et_j_addMajor_majorPrefix;
     Button btn_j_addMajor_back;
     Button btn_j_addMajor_addMajor;
+    TextView tv_j_addMajor_error;
+
+    DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,9 @@ public class AddNewMajor extends AppCompatActivity
         et_j_addMajor_majorPrefix = findViewById(R.id.et_v_addMajor_majorPrefix);
         btn_j_addMajor_back       = findViewById(R.id.btn_v_addMajor_back);
         btn_j_addMajor_addMajor   = findViewById(R.id.btn_v_addMajor_addMajor);
+        tv_j_addMajor_error       = findViewById(R.id.tv_v_addMajor_error);
+
+        dbHelper = new DatabaseHelper(this);
 
         backButtonClickListener();
         addMajorButtonClickListener();
@@ -53,6 +57,20 @@ public class AddNewMajor extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                if (!dbHelper.doesMajorExists(et_j_addMajor_majorName.getText().toString()))
+                {
+                    String majorName = et_j_addMajor_majorName.getText().toString();
+                    String majorPrefix = et_j_addMajor_majorPrefix.getText().toString();
+
+                    dbHelper.addMajor(majorName, majorPrefix);
+                    tv_j_addMajor_error.setVisibility(View.INVISIBLE);
+
+                    startActivity(new Intent(AddNewMajor.this, AddStudent.class));
+                }
+                else
+                {
+                    tv_j_addMajor_error.setVisibility(View.VISIBLE);
+                }
 
             }
         });

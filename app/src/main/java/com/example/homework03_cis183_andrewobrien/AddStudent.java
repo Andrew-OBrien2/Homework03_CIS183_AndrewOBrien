@@ -29,6 +29,7 @@ public class AddStudent extends AppCompatActivity
     Button btn_j_addStudent_back;
     Button btn_j_addStudent_addStudent;
     TextView tv_j_addStudent_addNewMajor;
+    TextView tv_j_addStudent_error;
     DatabaseHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -47,6 +48,7 @@ public class AddStudent extends AppCompatActivity
         btn_j_addStudent_back       = findViewById(R.id.btn_v_addStudent_back);
         btn_j_addStudent_addStudent = findViewById(R.id.btn_v_addStudent_addStudent);
         tv_j_addStudent_addNewMajor = findViewById(R.id.tv_v_addStudent_addNewMajor);
+        tv_j_addStudent_error       = findViewById(R.id.tv_v_addStudent_error);
 
         //Initialize DatabaseHelper
         dbHelper = new DatabaseHelper(this);
@@ -58,7 +60,8 @@ public class AddStudent extends AppCompatActivity
         ArrayList<String> majors = dbHelper.getAllMajors();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, majors);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp_j_addStudent_major.setAdapter(adapter); // Set the adapter to the spinner
+        //set the adapter to the spinner
+        sp_j_addStudent_major.setAdapter(adapter);
 
     }
 
@@ -69,8 +72,16 @@ public class AddStudent extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                studentAdded = true;
-                addStudent();
+                if (!dbHelper.doesUsernameExists(et_j_addStudent_username.getText().toString()))
+                {
+                    studentAdded = true;
+                    addStudent();
+                    tv_j_addStudent_error.setVisibility(View.INVISIBLE);
+                }
+                else
+                {
+                    tv_j_addStudent_error.setVisibility(View.VISIBLE);
+                }
             }
         });
     }
@@ -108,6 +119,7 @@ public class AddStudent extends AppCompatActivity
         int age = Integer.parseInt(et_j_addStudent_age.getText().toString());
         float gpa = Float.parseFloat(et_j_addStudent_gpa.getText().toString());
         String major = sp_j_addStudent_major.getSelectedItem().toString();
+
 
         Student newStudent = new Student(username, firstName, lastName, email, age, gpa, major);
 

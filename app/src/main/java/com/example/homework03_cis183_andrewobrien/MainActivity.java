@@ -49,8 +49,16 @@ public class MainActivity extends AppCompatActivity
 
         if (AddStudent.studentAdded)
         {
-            updateStudentList(adapter); //update the ListView
-            AddStudent.studentAdded = false; //reset the bool
+            //update listview and reset the bool
+            updateStudentList(adapter);
+            AddStudent.studentAdded = false;
+        }
+
+        if (UpdateStudent.studentUpdated)
+        {
+            //update listview and reset the bool
+            updateStudentList(adapter);
+            UpdateStudent.studentUpdated = false;
         }
     }
 

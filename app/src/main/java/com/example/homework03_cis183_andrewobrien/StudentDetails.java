@@ -24,6 +24,8 @@ public class StudentDetails extends AppCompatActivity
     Button btn_j_studentDetails_updateInfo;
     Button btn_j_studentDetails_back;
 
+    private Student student;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,14 +45,17 @@ public class StudentDetails extends AppCompatActivity
         updateInfoButtonClickListener();
         backButtonClickListener();
 
-        if (getIntent() != null) {
+        if (getIntent() != null)
+        {
             String username = getIntent().getStringExtra("username");
             String firstName = getIntent().getStringExtra("firstName");
             String lastName = getIntent().getStringExtra("lastName");
             String email = getIntent().getStringExtra("email");
             int age = getIntent().getIntExtra("age", 0);
-            float gpa = getIntent().getFloatExtra("gpa", 0.0f);
+            float gpa = getIntent().getFloatExtra("gpa", 0f);
             String major = getIntent().getStringExtra("major");
+
+            student = new Student(username, firstName, lastName, email, age, gpa, major);
 
             // Set the data to TextViews
             tv_j_studentDetails_username.setText(username);
@@ -71,7 +76,17 @@ public class StudentDetails extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                DatabaseHelper dbHelper = new DatabaseHelper(StudentDetails.this);
 
+                Intent intent = new Intent(StudentDetails.this, UpdateStudent.class);
+                intent.putExtra("username", student.getUsername());
+                intent.putExtra("firstName", student.getFirstName());
+                intent.putExtra("lastName", student.getLastName());
+                intent.putExtra("email", student.getEmail());
+                intent.putExtra("age", student.getAge());
+                intent.putExtra("gpa", student.getGpa());
+                intent.putExtra("major", dbHelper.getMajorName(student.getMajor()));
+                startActivity(intent);
             }
         });
     }
