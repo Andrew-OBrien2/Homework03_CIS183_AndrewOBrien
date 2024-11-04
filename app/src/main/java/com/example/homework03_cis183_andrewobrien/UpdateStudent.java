@@ -72,7 +72,7 @@ public class UpdateStudent extends AppCompatActivity
             float gpa = getIntent().getFloatExtra("gpa", 0f);
             String major = getIntent().getStringExtra("major");
 
-            // Set the data to TextViews
+            //Set the data to TextViews
             et_j_updateStudent_username.setText(username);
             et_j_updateStudent_firstName.setText(firstName);
             et_j_updateStudent_lastName.setText(lastName);
@@ -94,7 +94,7 @@ public class UpdateStudent extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                // Get the new values from the EditText fields and Spinner
+                //get the new values from the EditText fields and spinner
                 String oldUsername = getIntent().getStringExtra("username");
                 String username = et_j_updateStudent_username.getText().toString();
                 String firstName = et_j_updateStudent_firstName.getText().toString();
@@ -104,10 +104,9 @@ public class UpdateStudent extends AppCompatActivity
                 String gpa = et_j_updateStudent_gpa.getText().toString();
                 String major = sp_j_updateStudent_major.getSelectedItem().toString();
 
-                // Execute the SQL statement
                 dbHelper.updateStudent(oldUsername, username,firstName,lastName,email,age,gpa,major);
 
-                // Go back to StudentDetails with the updated info
+                //go back to StudentDetails with the updated info
                 Intent intent = new Intent(UpdateStudent.this, StudentDetails.class);
                 intent.putExtra("username", username);
                 intent.putExtra("firstName", firstName);

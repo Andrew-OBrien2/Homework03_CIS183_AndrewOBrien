@@ -89,10 +89,10 @@ public class SearchStudent extends AppCompatActivity
         String major = sp_j_search_major.getSelectedItem().toString();
 
 
-        // Call the database method to find students based on criteria
+        //call the database method to find students based on criteria
         ArrayList<Student> students = dbHelper.findStudentsGivenCriteria(username, firstName, lastName, gpaString, major);
 
-        // Initialize the adapter with the retrieved student list and set it to the ListView
+        //initialize the adapter with the retrieved student list and set it to the ListView
         adapter = new SearchListAdapter(this, students, dbHelper);
         lv_j_search_searchResults.setAdapter(adapter);
     }

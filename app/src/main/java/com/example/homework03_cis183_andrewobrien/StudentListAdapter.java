@@ -84,20 +84,20 @@ public class StudentListAdapter extends BaseAdapter
 
         view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View v) {
-                // Delete the student from the database directly
+            public boolean onLongClick(View v)
+            {
                 DatabaseHelper dbHelper = new DatabaseHelper(context);
-                dbHelper.deleteStudentFromDB(student.getUsername()); // Assuming you have a method to delete by username
+                dbHelper.deleteStudentFromDB(student.getUsername());
 
-                // Remove the student from the list and notify the adapter
+                //remove the student from the list and notify the adapter
                 listOfStudents.remove(i);
                 notifyDataSetChanged();
 
-                return true; // Indicate that the long click was handled
+                return true;
             }
         });
 
-        // Return the view for the list item
+        //return the view for the list item
         return view;
     }
 
